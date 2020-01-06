@@ -1,0 +1,17 @@
+@import "./config.scss";
+@import "./normalize.scss";
+@import "./elementui.scss";
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+// 利用空白元素来做占位符
+.black-space-30 {
+  height: 30px;
+  ;
+}

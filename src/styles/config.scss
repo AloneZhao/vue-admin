@@ -1,0 +1,22 @@
+// 后台框架尺寸
+
+// 左侧菜单宽度
+$navWidth: 250px;
+// 头部高度
+$headerHeight: 75px;
+// 侧边栏选中后的主色调
+$navBackgroud: #f56c6c;
+
+@mixin labelDom($align, $width, $line-height: "normal") {
+  label {
+    float: left;
+    line-height: $line-height+px;
+    width: $width+px;
+    text-align: $align;
+    box-sizing: border-box;
+  }
+
+  .wrap-content {
+    margin-left: $width+px;
+  }
+}

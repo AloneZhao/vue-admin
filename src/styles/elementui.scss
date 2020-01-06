@@ -1,0 +1,86 @@
+// 用来修改elementui中的默认样式
+.el-menu {
+  border: none;
+}
+
+.el-submenu {
+
+  // 修改二级菜单选中的样式
+  .el-menu-item {
+    font-size: 14px;
+    padding-left: 50px !important;
+
+    &.is-active {
+      background-color: rgba(245, 108, 108, 0.2) !important;
+    }
+  }
+
+}
+
+// 修改一级菜单
+li.el-submenu {
+  &.is-opened .el-submenu__title {
+    background: $navBackgroud !important;
+  }
+}
+
+// 修改导航栏收起后的样式
+.open {
+  .el-submenu {
+    &.is-opened {
+      >.el-submenu__title {
+        background: $navBackgroud !important;
+      }
+    }
+  }
+}
+
+.el-menu--vertical {
+  .el-menu-item {
+    background: #344A5F !important;
+
+    &:hover {
+      background: rgba(245, 108, 108, 0.8) !important;
+    }
+  }
+}
+
+// 修改表格的样式
+div.el-table {
+
+  th,
+  td {
+    text-align: center;
+  }
+
+  th {
+    font-weight: bold;
+    color: #344A5F;
+  }
+
+  td {
+    font-size: 14px;
+  }
+}
+
+// dialog样式
+.el-dialog__body {
+  padding: 30px 47px !important;
+}
+
+.el-dialog__footer {
+  text-align: center;
+  padding-bottom: 50px !important;
+
+  .el-button {
+    width: 150px;
+    margin: 0 11px !important;
+  }
+}
+
+// form样式
+.el-form {
+  .el-form-item:last-child {
+    margin-bottom: 0 !important;
+  }
+}
