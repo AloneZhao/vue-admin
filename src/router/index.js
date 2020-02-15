@@ -11,7 +11,8 @@ const routes = [
     path: "/",
     redirect: "login",
     meta: {
-      name: "主页"
+      name: "主页",
+      icon: "el-icon-s-home"
     },
     hidden: true
   },
@@ -30,7 +31,8 @@ const routes = [
     path: "/console",
     name: "Console",
     meta: {
-      name: "控制台"
+      name: "控制台",
+      icon: "el-icon-monitor"
     },
     redirect: "index",
     component: Layout,
@@ -39,7 +41,8 @@ const routes = [
         path: "/index", //绝对地址
         name: "Index",
         meta: {
-          name: "首页"
+          name: "首页",
+          icon: "el-icon-s-home"
         },
         component: () => import("../views/Console/index.vue")
       }
@@ -50,7 +53,8 @@ const routes = [
     path: "/info",
     name: "Info",
     meta: {
-      name: "信息管理"
+      name: "信息管理",
+      icon: "el-icon-document"
     },
     component: Layout,
     children: [
@@ -77,7 +81,8 @@ const routes = [
     path: "/user",
     name: "User",
     meta: {
-      name: "用户管理"
+      name: "用户管理",
+      icon: "el-icon-user"
     },
     component: Layout,
     children: [

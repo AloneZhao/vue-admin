@@ -14,8 +14,10 @@
         <el-submenu v-if="!item.hidden" :key="item.id" :index="index + ''">
           <!-- 一级菜单 -->
           <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">{{ item.meta.name }}</span>
+            <i :class="item.meta.icon"></i>
+            <span slot="title" style="vertical-align: middle;">{{
+              item.meta.name
+            }}</span>
           </template>
           <!-- 子菜单 -->
           <el-menu-item

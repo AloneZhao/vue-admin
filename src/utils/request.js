@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Message } from "element-ui";
+import { get_Token, get_Username } from "@/utils/storage";
 
 // 创建axios拦截器
 // 创建axios,赋给变量service
@@ -13,6 +14,8 @@ const service = axios.create({
 service.interceptors.request.use(
   function(config) {
     // 在发送请求之前做些什么
+    config.headers["Tokey"] = get_Token();
+    config.headers["UserName"] = get_Username();
     return config;
   },
   function(error) {

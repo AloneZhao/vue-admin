@@ -19,7 +19,6 @@ export default {
 
 <style lang="scss" scoped>
 #main-wrap {
-  height: 100vh;
   position: fixed;
   left: $navWidth;
   top: $headerHeight;
@@ -27,16 +26,18 @@ export default {
   bottom: 0;
   box-sizing: border-box;
   background: #f7f7f7;
+  overflow-y: auto;
 }
 .main-content {
   width: 100%;
   height: 100%;
   padding: 15px 15px 0 15px;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 .content {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   padding: 20px 20px 0 20px;
   box-sizing: border-box;
   background: #fff;

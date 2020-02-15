@@ -91,6 +91,7 @@
 </template>
 
 <script>
+import sha1 from "js-sha1";
 import {
   stripscript,
   validateEmail,
@@ -254,7 +255,7 @@ export default {
       // 登陆参数
       let params = {
         username: this.ruleForm.userName,
-        password: this.ruleForm.pwd,
+        password: sha1(this.ruleForm.pwd),
         code: this.ruleForm.code
       };
       this.$store
@@ -278,7 +279,7 @@ export default {
       // 注册的数据
       let params = {
         username: this.ruleForm.userName,
-        password: this.ruleForm.pwd,
+        password: sha1(this.ruleForm.pwd),
         code: this.ruleForm.code,
         module: this.module
       };

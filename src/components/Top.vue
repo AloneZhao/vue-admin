@@ -1,7 +1,7 @@
 <template>
   <div id="header-wrap">
     <div class="pull-left header-icon" @click="setIsCollapse">
-      <i class="el-icon-d-arrow-left"></i>
+      <i class="el-icon-menu"></i>
     </div>
     <div class="pull-right header-icon">
       <div class="user-info pull-left">{{ setUserName }}</div>

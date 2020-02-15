@@ -1,4 +1,4 @@
-import { MessageBox } from "element-ui";
+import { MessageBox, Message } from "element-ui";
 export default {
   install(Vue) {
     Vue.prototype.confirm = parames => {
@@ -9,20 +9,20 @@ export default {
         center: true
       })
         .then(() => {
-          parames.callback && parames.callback();
+          parames.callback && parames.callback(parames.id);
           // if (parames.callback) {
           //   parames.callback();
           // }
-          this.$message({
-            type: "success",
-            message: "删除成功!"
-          });
+          // this.$message({
+          //   type: "success",
+          //   message: "删除成功!"
+          // });
         })
         .catch(() => {
-          // this.$message({
-          //   type: "info",
-          //   message: "已取消删除"
-          // });
+          Message({
+            type: "info",
+            message: "已取消删除"
+          });
         });
     };
   }
