@@ -2,7 +2,7 @@
   <!-- 封装弹框组件 基于 elementui -->
   <el-dialog
     width="580px"
-    title="新增"
+    title="编辑"
     :visible.sync="dialogFlag"
     append-to-body
     @close="closeDialog"
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { AddInfo } from "@/api/news";
+import { GetList, EditInfo } from "@/api/news";
 export default {
   name: "DialogInfo",
   data() {
@@ -50,8 +50,7 @@ export default {
       form: {
         category: "",
         title: "",
-        content: "",
-        type: []
+        content: ""
       },
       formLabelWidth: "70px",
       categoryInfo: [], // 分类信息
@@ -64,19 +63,20 @@ export default {
       this.$emit("update:flag", false);
       this.$refs.addInfoForm.resetFields();
     },
-    // 打开弹窗后执行的方法
+    // 打开弹窗
     openDialog() {
       this.categoryInfo = this.category;
+      this.editGetList();
     },
-
     submit() {
       let reqData = {
-        category: this.form.category,
+        id: this.id,
+        categoryId: this.form.category,
         title: this.form.title,
         content: this.form.content
       };
       this.btnLoading = true;
-      AddInfo(reqData)
+      EditInfo(reqData)
         .then(response => {
           this.$message({
             message: response.message,
@@ -84,6 +84,7 @@ export default {
           });
           this.btnLoading = false;
           this.$refs.addInfoForm.resetFields();
+          this.$emit("getList");
         })
         .catch(error => {
           console.log(error);
@@ -92,6 +93,28 @@ export default {
             type: "error"
           });
           this.btnLoading = false;
+        });
+    },
+    editGetList() {
+      let requestData = {
+        pageNumber: 1,
+        pageSize: 1,
+        id: this.id
+      };
+      // console.log(requestData);
+      GetList(requestData)
+        .then(response => {
+          // console.log(response);
+          let { data } = response.data;
+          // console.log(data[0]);
+          this.form = {
+            category: data[0].categoryId,
+            title: data[0].title,
+            content: data[0].content
+          };
+        })
+        .catch(error => {
+          console.log(error);
         });
     }
   },
@@ -103,6 +126,10 @@ export default {
     category: {
       type: Array,
       default: () => []
+    },
+    id: {
+      type: String,
+      default: ""
     }
   },
   watch: {

@@ -10,9 +10,12 @@ import "./router/guard"; // 路由守卫 跳转前 token 验证
 
 // 自定义全局方法
 import global from "@/utils/global";
+import { getCommon, getCommonAll } from "@/api/common";
 
 Vue.use(ElementUI);
 Vue.use(global);
+Vue.prototype.$getCommon = getCommon;
+Vue.prototype.$getDataAll = getCommonAll;
 Vue.config.productionTip = false;
 
 new Vue({
