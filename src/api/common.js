@@ -1,5 +1,6 @@
 // 获取信息分类的公共方法
-import { GetCategory, GetCategoryAll } from "@/api/news";
+import { GetCategory, GetCategoryAll } from '@/api/news'
+import service from '@/utils/request'
 
 /**
  *
@@ -8,11 +9,11 @@ import { GetCategory, GetCategoryAll } from "@/api/news";
 function getCommon(callback) {
   GetCategory({})
     .then(({ data }) => {
-      callback(data);
+      callback(data)
     })
     .catch(error => {
-      console.log(error);
-    });
+      console.log(error)
+    })
 }
 
 /**
@@ -22,11 +23,22 @@ function getCommon(callback) {
 function getCommonAll(callback) {
   GetCategoryAll({})
     .then(({ data }) => {
-      callback(data);
+      callback(data)
     })
     .catch(error => {
-      console.log(error);
-    });
+      console.log(error)
+    })
 }
 
-export { getCommon, getCommonAll };
+/**
+ * 获取七牛云token
+ */
+function getQiniuToken(data) {
+  service.request({
+    url: '/uploadImgToken/',
+    method: 'post',
+    data
+  })
+}
+
+export { getCommon, getCommonAll, getQiniuToken }

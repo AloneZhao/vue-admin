@@ -13,5 +13,10 @@
 // 利用空白元素来做占位符
 .black-space-30 {
   height: 30px;
-  ;
+}
+
+@for $i from 1 through 110 {
+  .margin-left-#{$i} {
+    margin-left: (1px * $i)
+  }
 }
