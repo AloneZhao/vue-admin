@@ -155,7 +155,7 @@ export default {
   name: 'InfoIndex',
   data() {
     return {
-      // 信息列表
+      // 信息分类列表
       options: [],
 
       // 数据总共条数

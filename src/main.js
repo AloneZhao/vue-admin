@@ -1,25 +1,25 @@
-import Vue from "vue";
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import "./router/guard"; // 路由守卫 跳转前 token 验证
+import Vue from 'vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import './router/guard' // 路由守卫 跳转前 token 验证
 // 自定义全局组件
 // import "./icons";
 
 // 自定义全局方法
-import global from "@/utils/global";
-import { getCommon, getCommonAll } from "@/api/common";
+import global from '@/utils/global'
+import { getCommon, getCommonAll } from '@/api/common'
 
-Vue.use(ElementUI);
-Vue.use(global);
-Vue.prototype.$getCommon = getCommon;
-Vue.prototype.$getDataAll = getCommonAll;
-Vue.config.productionTip = false;
+Vue.use(ElementUI)
+Vue.use(global)
+Vue.prototype.$getCommon = getCommon
+Vue.prototype.$getDataAll = getCommonAll
+Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+}).$mount('#app')

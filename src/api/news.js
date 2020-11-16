@@ -1,33 +1,33 @@
-import service from "@/utils/request";
+import service from '@/utils/request'
 /**
  * 编辑
  */
 function EditCategoryFirst(data) {
   return service.request({
-    method: "post",
-    url: "/news/editCategory/",
+    method: 'post',
+    url: '/news/editCategory/',
     data
-  });
+  })
 }
 /**
  * 删除信息分类
  */
 function DelCategory(data) {
   return service.request({
-    method: "post",
-    url: "/news/deleteCategory/",
+    method: 'post',
+    url: '/news/deleteCategory/',
     data
-  });
+  })
 }
 /**
  * 添加一级分类
  */
 function AddFirstCategory(data) {
   return service.request({
-    method: "post",
-    url: "/news/addFirstCategory/",
+    method: 'post',
+    url: '/news/addFirstCategory/',
     data
-  });
+  })
 }
 
 /**
@@ -35,10 +35,10 @@ function AddFirstCategory(data) {
  */
 function AddChildrenCategory(data) {
   return service.request({
-    method: "post",
-    url: "/news/addChildrenCategory/",
+    method: 'post',
+    url: '/news/addChildrenCategory/',
     data
-  });
+  })
 }
 
 /**
@@ -46,10 +46,10 @@ function AddChildrenCategory(data) {
  */
 function GetCategory(data) {
   return service.request({
-    method: "post",
-    url: "/news/getCategory/",
+    method: 'post',
+    url: '/news/getCategory/',
     data
-  });
+  })
 }
 
 /**
@@ -57,10 +57,10 @@ function GetCategory(data) {
  */
 function GetCategoryAll(data) {
   return service.request({
-    method: "post",
-    url: "/news/getCategoryAll/ ",
+    method: 'post',
+    url: '/news/getCategoryAll/ ',
     data
-  });
+  })
 }
 
 /**
@@ -68,10 +68,10 @@ function GetCategoryAll(data) {
  */
 function AddInfo(data) {
   return service.request({
-    method: "post",
-    url: "/news/add/",
+    method: 'post',
+    url: '/news/add/',
     data
-  });
+  })
 }
 
 /**
@@ -79,10 +79,10 @@ function AddInfo(data) {
  */
 function GetList(data) {
   return service.request({
-    method: "post",
-    url: "/news/getList/",
+    method: 'post',
+    url: '/news/getList/',
     data
-  });
+  })
 }
 
 /**
@@ -90,10 +90,10 @@ function GetList(data) {
  */
 function DeleteInfo(data) {
   return service.request({
-    method: "post",
-    url: "/news/deleteInfo/",
+    method: 'post',
+    url: '/news/deleteInfo/',
     data
-  });
+  })
 }
 
 /**
@@ -101,10 +101,10 @@ function DeleteInfo(data) {
  */
 function EditInfo(data) {
   return service.request({
-    method: "post",
-    url: "/news/editInfo/",
+    method: 'post',
+    url: '/news/editInfo/',
     data
-  });
+  })
 }
 
 export {
@@ -118,4 +118,4 @@ export {
   DeleteInfo,
   EditInfo,
   GetCategoryAll
-};
+}

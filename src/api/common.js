@@ -41,4 +41,25 @@ function getQiniuToken(data) {
   })
 }
 
-export { getCommon, getCommonAll, getQiniuToken }
+/**
+ * 用户信息列表的获取
+ */
+function getUserList(params) {
+  return service.request({
+    url: params.url,
+    method: params.method || 'post',
+    data: params.data || {}
+  })
+}
+
+/**
+ * 获取省、市、区
+ */
+function loadCity(data) {
+  return service.request({
+    url: '/cityPicker/',
+    method: 'post',
+    data
+  })
+}
+export { getCommon, getCommonAll, getQiniuToken, getUserList, loadCity }

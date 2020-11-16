@@ -1,37 +1,45 @@
 <template>
   <!-- 封装弹框组件 基于 elementui -->
-  <el-dialog width="580px"
+  <el-dialog width="700px"
              title="新增"
+             top="50px"
+             destroy-on-close
              :visible.sync="dialogFlag"
              append-to-body
              @close="closeDialog"
              @open="openDialog">
     <el-form :model="form"
              ref="addInfoForm">
-      <el-form-item label="分类"
-                    :label-width="formLabelWidth"
-                    prop="category">
-        <el-select v-model="form.categoryId"
-                   placeholder="请选择信息类型">
-          <el-option v-for="item in categoryInfo"
-                     :label="item.category_name"
-                     :value="item.id"
-                     :key="item.id"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="标题"
+      <el-form-item label="用户名"
                     :label-width="formLabelWidth"
                     prop="title">
         <el-input v-model="form.title"
-                  placeholder="请输入标题"></el-input>
+                  placeholder="请输入用户名"></el-input>
       </el-form-item>
-      <el-form-item label="概括"
+      <el-form-item label="姓名"
                     :label-width="formLabelWidth"
                     prop="content">
-        <el-input type="textarea"
-                  v-model="form.content"
-                  placeholder="请输入内容"
-                  rows="5"></el-input>
+        <el-input v-model="form.content"
+                  placeholder="请输入姓名"></el-input>
+      </el-form-item>
+      <el-form-item label="手机号"
+                    :label-width="formLabelWidth"
+                    prop="content">
+        <el-input v-model="form.content"
+                  placeholder="请输入手机号"></el-input>
+      </el-form-item>
+      <el-form-item label="地区"
+                    :label-width="formLabelWidth"
+                    prop="content">
+        <city-picker :city-picker.sync="cityPicker" :city-pick-level="['province', 'city', 'area', 'street']"></city-picker>
+      </el-form-item>
+      <el-form-item label="是否启用"
+                    :label-width="formLabelWidth"
+                    prop="content">
+        <!-- <el-radio v-model="radio"
+                  label="1">禁用</el-radio>
+        <el-radio v-model="radio"
+                  label="2">启用</el-radio> -->
       </el-form-item>
     </el-form>
     <div slot="footer"
@@ -46,11 +54,17 @@
 
 <script>
 import { AddInfo } from '@/api/news'
+import CityPicker from '@c/CityPicker/index'
 export default {
   name: 'DialogInfo',
+  components: {
+    CityPicker
+  },
   data() {
     return {
+      radio: '1',
       dialogFlag: false,
+      cityPicker: {},
       form: {
         categoryId: '',
         title: '',
